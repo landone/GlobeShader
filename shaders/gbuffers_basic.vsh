@@ -11,6 +11,7 @@
 #define WAVY_PLANTS
 
 #ifdef WAVY_PLANTS
+	#define WAVE_SPEED	1.0 //[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0]
 	attribute vec3 mc_Entity;
 	uniform int worldTime;
 	uniform vec3 cameraPosition; 
@@ -42,7 +43,7 @@ void main() {
 	
 	#ifdef WAVY_PLANTS
 		if (mc_Entity.x == 18) {
-			pos.y += sin((worldTime * 0.02)+(pos.x + pos.z + cameraPosition.x + cameraPosition.z)*0.3) * 0.125 - 0.06;
+			pos.y += sin((worldTime * WAVE_SPEED * 0.15)+(pos.x + pos.z + cameraPosition.x + cameraPosition.z)*0.3) * 0.06;
 		}
 	#endif
 	
